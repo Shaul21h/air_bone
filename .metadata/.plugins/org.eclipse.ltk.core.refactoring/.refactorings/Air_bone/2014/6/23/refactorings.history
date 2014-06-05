@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename resource &apos;Air_bone/res/drawable-hdpi/MIC.png&apos; to &apos;ic_mic.png&apos;" description="Rename resource &apos;MIC.png&apos;" flags="7" id="org.eclipse.ltk.core.refactoring.rename.resource" input="res/drawable-hdpi/MIC.png" name="ic_mic.png" stamp="1402003565674" updateReferences="true"/>
+</session>

@@ -41,11 +41,12 @@ module.exports.init = function(stringword, callback){
 			defer.reject({message: 'failed'});
 		}
 		else{
-			if(!response.length){
-				fetchfromgoogle(stringword)
+			console.log(response);
+			if(response.length < 1){
+				//fetchfromgoogle(stringword)
 			}
 			else{
-
+				defer.resolve(response);
 			}	
 		}
 	});
