@@ -11,7 +11,7 @@
 
 
     <ImageButton
-        android:id="@+id/imageButton1"
+        android:id="@+id/speakbutton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
@@ -19,6 +19,18 @@
         android:layout_marginBottom="32dp"
         android:background="@null"
         android:src="@drawable/ic_mic"
-        android:visibility="visible" />
+        android:visibility="visible" 
+        android:contentDescription="TODO"
+        />
+
+    <TextView
+        android:id="@+id/speaknow"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/speakbutton"
+        android:layout_alignParentBottom="true"
+        android:layout_alignRight="@+id/speakbutton"
+        android:ems="3"
+        android:textSize="20dp" />
 
 </RelativeLayout>
