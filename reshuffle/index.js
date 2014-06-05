@@ -3,7 +3,7 @@ var express = require('express'),
 	path = require('path');
 
 var engine = require('./engine.js');
-
+var io = require('socket.io')(http);
 
 
 var app = express();
@@ -19,7 +19,7 @@ router.use(function(req, res, next) {
 
 
 app.get('/:word', function(req, res){
-	
+
 	engine.init(req.params.word, function(response){
 		response.then(function(data){
 			res.send(data);
