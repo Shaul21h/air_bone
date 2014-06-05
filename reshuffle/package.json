@@ -1,0 +1,20 @@
+{
+  "name": "reshuffle",
+  "version": "0.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "BSD-2-Clause",
+  "devDependencies": {
+    "express": "~4.4.1",
+    "wolfram-alpha": "~0.1.1",
+    "wolfram": "~0.3.0",
+    "request": "~2.36.0",
+    "xml2js": "~0.4.4",
+    "q": "~1.0.1",
+    "google": "~0.3.2"
+  }
+}
