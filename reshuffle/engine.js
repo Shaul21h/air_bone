@@ -41,12 +41,13 @@ module.exports.init = function(stringword, callback){
 			defer.reject({message: 'failed'});
 		}
 		else{
-			console.log(response);
+			
 			if(response.length < 1){
 				//fetchfromgoogle(stringword)
 			}
 			else{
-				defer.resolve(response);
+				console.log(response[1].subpods[0].value)
+				defer.resolve(response[1].subpods[0].value.replace(/wolfram\|alpha/ig, "Pearson one air").replace(/stephen.*/ig, "Team Ninjas").replace(/^\d\s[years].*/ig, "Just a day old baby") || "Im not ready to answer this question.");
 			}	
 		}
 	});

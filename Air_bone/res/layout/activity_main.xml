@@ -33,4 +33,14 @@
         android:ems="3"
         android:textSize="20dp" />
 
+    <LinearLayout
+        android:id="@+id/chatcontainer"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/speakbutton"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:orientation="vertical" >
+    </LinearLayout>
+
 </RelativeLayout>

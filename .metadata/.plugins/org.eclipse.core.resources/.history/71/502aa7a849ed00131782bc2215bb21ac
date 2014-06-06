@@ -1,0 +1,114 @@
+package com.gelabs.air_bone;
+
+import java.util.ArrayList;
+
+import org.apache.http.client.HttpClient;
+import org.apache.http.client.methods.HttpGet;
+import org.apache.http.client.methods.HttpPost;
+import org.apache.http.impl.client.DefaultHttpClient;
+import org.apache.http.impl.conn.DefaultClientConnection;
+
+import android.app.Activity;
+import android.os.Bundle;
+import android.view.Menu;
+import android.view.View;
+import android.view.View.OnClickListener;
+import android.widget.ImageButton;
+import android.widget.LinearLayout;
+import android.widget.TextView;
+import android.content.ActivityNotFoundException;
+import android.content.Intent;
+import android.os.Bundle;
+import android.speech.RecognizerIntent;
+import android.view.Menu;
+import android.widget.Toast;
+
+public class MainActivity extends Activity {
+	protected static final int RESULT_SPEECH = 1;
+	private TextView speaknow;
+	private LinearLayout chatcontainer;
+	private TextView valueTV ;
+	
+	private String url = "http://10.98.5.161:4000/";
+	
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+        final ImageButton speakbutton = (ImageButton) findViewById(R.id.speakbutton);
+        speaknow = (TextView) findViewById(R.id.speaknow);
+        chatcontainer = (LinearLayout)findViewById(R.id.chatcontainer);
+      
+        speakbutton.setOnClickListener(new OnClickListener() {
+			
+			@Override
+			public void onClick(View v) {
+				// TODO Auto-generated method stub
+				speakbutton.setImageResource(R.drawable.lc_micglow);
+				speaknow.setText("Speak now");
+				
+				   Intent intent = new Intent(
+	                        RecognizerIntent.ACTION_RECOGNIZE_SPEECH);
+	 
+	                intent.putExtra(RecognizerIntent.EXTRA_LANGUAGE_MODEL, "en-US");
+	 
+	                try {
+	                    startActivityForResult(intent, RESULT_SPEECH);
+	                    //txtText.setText("");
+	                } catch (ActivityNotFoundException a) {
+	                    Toast t = Toast.makeText(getApplicationContext(),
+	                            "Opps! Your device doesn't support Speech to Text",
+	                            Toast.LENGTH_SHORT);
+	                    t.show();
+	                }
+			}
+		});
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        // Inflate the menu; this adds items to the action bar if it is present.
+        getMenuInflater().inflate(R.menu.main, menu);
+        return true;
+    }
+    
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+ 
+        switch (requestCode) {
+        case RESULT_SPEECH: {
+            if (resultCode == RESULT_OK && null != data) {
+ 
+                ArrayList<String> text = data
+                        .getStringArrayListExtra(RecognizerIntent.EXTRA_RESULTS);
+                valueTV = new TextView(this);
+                valueTV.setText("hallo hallo");
+                valueTV.setId(5);
+                HttpClient httpClient = new DefaultHttpClient();
+                
+                HttpGet get = new HttpGet(url);
+                valueTV.setText(text.get(0));
+             // Making HTTP Request
+                try {
+                    HttpResponse response = httpClient.execute(httpPost);
+                 
+                    // writing response to log
+                    Log.d("Http Response:", response.toString());
+                 
+                } catch (ClientProtocolException e) {
+                    // writing exception to log
+                    e.printStackTrace();
+                         
+                } catch (IOException e) {
+                    // writing exception to log
+                    e.printStackTrace();
+                }
+                chatcontainer.addView(valueTV);
+            }
+            break;
+        }
+ 
+        }
+    }
+}

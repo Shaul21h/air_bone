@@ -18,7 +18,7 @@ router.use(function(req, res, next) {
 
 
 
-app.get('/:word', function(req, res){
+app.all('/:word', function(req, res){
 
 	engine.init(req.params.word, function(response){
 		response.then(function(data){

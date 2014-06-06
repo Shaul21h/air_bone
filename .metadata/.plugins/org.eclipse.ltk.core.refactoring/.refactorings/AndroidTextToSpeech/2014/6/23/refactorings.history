@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Move element &apos;AndroidTextToSpeechActivity.java&apos; to &apos;Air_bone/src/com.gelabs.air_bone&apos;&#x0A;- Original project: &apos;AndroidTextToSpeech&apos;&#x0A;- Destination element: &apos;Air_bone/src/com.gelabs.air_bone&apos;&#x0A;- Original element: &apos;com.androidhive.texttospeech.AndroidTextToSpeechActivity.java&apos;&#x0A;- Update references to refactored element" description="Move compilation unit" destination="=Air_bone/src&lt;com.gelabs.air_bone" element1="/src&lt;com.androidhive.texttospeech{AndroidTextToSpeechActivity.java" files="0" flags="589830" folders="0" id="org.eclipse.jdt.ui.move" patterns="*" policy="org.eclipse.jdt.ui.moveResources" qualified="false" references="true" stamp="1402050428658" units="1" version="1.0"/>
+</session>
